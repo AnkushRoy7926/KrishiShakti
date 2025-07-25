@@ -2,17 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Rethink_Sans } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs';
-import { dark } from '@clerk/themes';
-import Image from 'next/image';
-import { NavbarKS } from '@/components/navbar';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

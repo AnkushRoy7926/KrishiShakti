@@ -239,7 +239,7 @@ export const NavbarLogo = () => {
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
       <Image src="/logo.png" alt="logo" width={42} height={42} />
-      <span className="text-xl font-black text-black text-green-800 dark:text-white">
+      <span className="text text-green-hunter text-xl font-black dark:text-white">
         KrishiShakti
       </span>
     </Link>
