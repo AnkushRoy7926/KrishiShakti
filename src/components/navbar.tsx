@@ -10,6 +10,9 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from '@/components/ui/resizable-navbar';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { User } from '@clerk/nextjs/server';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export function NavbarKS({ children }: { children?: React.ReactNode }) {
@@ -38,8 +41,17 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <NavbarButton variant="secondary" href="/sign-in">
+                Login
+              </NavbarButton>
+            </SignedOut>
+            <NavbarButton variant="primary" href="/sign-in">
+              Book a call
+            </NavbarButton>
           </div>
         </NavBody>
 
@@ -47,10 +59,15 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
         <MobileNav>
           <MobileNavHeader>
             <NavbarLogo />
-            <MobileNavToggle
-              isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
+            <div className="flex flex-row items-center gap-4">
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+              <MobileNavToggle
+                isOpen={isMobileMenuOpen}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              />
+            </div>
           </MobileNavHeader>
 
           <MobileNavMenu
@@ -68,17 +85,22 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
+              <SignedOut>
+                <NavbarButton
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  variant="primary"
+                  className="w-full"
+                  href="/sign-in"
+                >
+                  Login
+                </NavbarButton>
+              </SignedOut>
+
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"
-              >
-                Login
-              </NavbarButton>
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
+                href="/sign-in"
               >
                 Book a call
               </NavbarButton>
@@ -86,6 +108,8 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
+      <DummyContent />
+      {/* Render children components */}
       {children}
 
       {/* Navbar */}
@@ -94,5 +118,5 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
 }
 
 const DummyContent = () => {
-  return <div className="container mx-auto p-8 pt-24"></div>;
+  return <div className="container mx-auto pt-4"></div>;
 };

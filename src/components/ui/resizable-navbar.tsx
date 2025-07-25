@@ -7,6 +7,9 @@ import {
   useScroll,
   useMotionValueEvent,
 } from 'motion/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import React, { useRef, useState } from 'react';
 
@@ -231,18 +234,15 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <a
-      href="#"
+    <Link
+      href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
-      <img
-        src="https://assets.aceternity.com/logo-dark.png"
-        alt="logo"
-        width={30}
-        height={30}
-      />
-      <span className="font-medium text-black dark:text-white">Startup</span>
-    </a>
+      <Image src="/logo.png" alt="logo" width={42} height={42} />
+      <span className="text-xl font-black text-black text-green-800 dark:text-white">
+        KrishiShakti
+      </span>
+    </Link>
   );
 };
 
@@ -263,6 +263,7 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<'a'>
   | React.ComponentPropsWithoutRef<'button'>
 )) => {
+  const router = useRouter();
   const baseStyles =
     'px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center';
 
@@ -280,6 +281,13 @@ export const NavbarButton = ({
       href={href || undefined}
       className={cn(baseStyles, variantStyles[variant], className)}
       {...props}
+      onClick={(
+        e: React.MouseEvent<HTMLAnchorElement, MouseEvent> &
+          React.MouseEvent<HTMLButtonElement, MouseEvent>
+      ) => {
+        router.push(href || '/');
+        if (props.onClick) props.onClick(e);
+      }}
     >
       {children}
     </Tag>
