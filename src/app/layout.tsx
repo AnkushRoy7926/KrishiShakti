@@ -83,8 +83,7 @@ export default function RootLayout({
                 </SignedIn>
               </div>
             </header> */}
-            <NavbarKS />
-            {children}
+            <NavbarKS>{children}</NavbarKS>
           </ThemeProvider>
         </body>
       </html>

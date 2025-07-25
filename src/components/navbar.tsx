@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/resizable-navbar';
 import { useState } from 'react';
 
-export function NavbarKS() {
+export function NavbarKS({ children }: { children?: React.ReactNode }) {
   const navItems = [
     {
       name: 'Features',
@@ -86,7 +86,7 @@ export function NavbarKS() {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-      <DummyContent />
+      {children}
 
       {/* Navbar */}
     </div>
