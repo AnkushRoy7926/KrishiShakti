@@ -12,7 +12,7 @@ const Expert = () => {
   return (
     <div className="h-[80vh] bg-gray-50 p-2">
       <div className="relative flex h-full flex-col justify-between overflow-hidden rounded-xl p-6 md:p-12">
-        <p className="z-10 h-full max-w-128 text-5xl font-medium text-white">
+        <p className="z-10 h-full max-w-128 text-4xl font-medium text-white lg:text-5xl">
           Collaborate And Learn From Industry Experts and Enthusissts
         </p>
         <div className="z-10 flex flex-row items-center justify-between">
