@@ -26,7 +26,7 @@ const EmailSection = () => {
           Revolution Today!
         </h2>
 
-        <form className="flex w-full max-w-md gap-2">
+        <form className="flex w-full max-w-md flex-col gap-2 sm:flex-row">
           <input
             type="email"
             placeholder="Email address"

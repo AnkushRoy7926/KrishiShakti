@@ -15,8 +15,8 @@ const Info = () => {
           <p className="text-green-hunter h-full font-medium">2025</p>
           <div className="flex flex-row gap-6 font-bold">
             <p> Organic Farm</p>
-            <p className="opacity-40"> Automation Farm </p>
-            <p className="opacity-40">Bio-medical Farm</p>
+            <p className="opacity-70"> Automation Farm </p>
+            <p className="opacity-70">Bio-medical Farm</p>
           </div>
         </div>
         <div>
@@ -26,7 +26,7 @@ const Info = () => {
           </p>
         </div>
         <div />
-        <div className="text-green-dark mt-6 grid opacity-60 md:grid-cols-2">
+        <div className="text-green-dark mt-6 grid opacity-70 md:grid-cols-2">
           <p>Harvesting Legacy.</p>
           <p>Planting Tomorrow.</p>
         </div>
@@ -64,7 +64,10 @@ const Info = () => {
                   Get <br />
                   Started Now
                 </p>
-                <button className="bg-green-dark flex h-12 w-12 items-center justify-center rounded-full text-white transition hover:bg-green-800">
+                <button
+                  aria-label="Go"
+                  className="bg-green-dark flex h-12 w-12 items-center justify-center rounded-full text-white transition hover:bg-green-800"
+                >
                   <IconArrowRight size={20} />
                 </button>
               </div>
