@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Rethink_Sans } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ClerkProvider } from '@clerk/nextjs';
+import Head from 'next/head';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,7 +37,9 @@ export default function RootLayout({
     // }}
     >
       <html lang="en" suppressHydrationWarning>
-        <head />
+        <Head>
+          <link rel="preload" as="image" href="/bg.jpg" fetchPriority="high" />
+        </Head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${rethinkSans.variable} font-[family-name:var(--font-rethink-sans)] antialiased`}
         >
