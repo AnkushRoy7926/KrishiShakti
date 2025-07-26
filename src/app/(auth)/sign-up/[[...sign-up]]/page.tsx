@@ -25,7 +25,7 @@ export default function SignUpPage() {
               <SignUp.Step name="start">
                 <Card className="w-full sm:w-96">
                   <CardHeader>
-                    <CardTitle>Create your AnshuID</CardTitle>
+                    <CardTitle>Create your KrishiID</CardTitle>
                     <CardDescription>
                       Welcome! Please fill in the details to get started.
                     </CardDescription>

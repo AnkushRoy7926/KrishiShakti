@@ -42,7 +42,7 @@ export default function SignInPage() {
               <SignIn.Step name="start">
                 <Card className="w-full sm:w-96">
                   <CardHeader>
-                    <CardTitle>Sign into with AnshuID</CardTitle>
+                    <CardTitle>Sign into with KrishiID</CardTitle>
                     <CardDescription>
                       Welcome back! Please sign in to continue
                     </CardDescription>

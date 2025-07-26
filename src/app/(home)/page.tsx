@@ -1,3 +1,4 @@
+import Expert from '@/components/home/expert';
 import Hero from '@/components/home/hero';
 import Info from '@/components/home/info';
 import Numbers from '@/components/home/numbers';
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <Numbers />
       <Info />
+      <Expert />
       <h1 className="mb-4 text-center text-3xl font-bold">
         Check the navbar at the top of the container
       </h1>
