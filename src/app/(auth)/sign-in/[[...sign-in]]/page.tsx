@@ -13,10 +13,28 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Icons } from '@/components/ui/icons';
+import { ClerkLoading } from '@clerk/nextjs';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function SignInPage() {
   return (
     <div className="grid w-full grow items-center px-4 sm:justify-center">
+      <ClerkLoading>
+        <Card className="w-full sm:w-96">
+          <CardHeader>
+            <Skeleton className="h-5 w-42" />
+            <Skeleton className="mt-2 h-4 w-68" />
+          </CardHeader>
+          <CardContent className="grid gap-y-4">
+            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-8 w-full" />
+            <Skeleton className="mt-2 h-8 w-full" />
+          </CardContent>
+          <CardFooter className="grid justify-center gap-y-4">
+            <Skeleton className="h-4 w-54" />
+          </CardFooter>
+        </Card>
+      </ClerkLoading>
       <SignIn.Root>
         <Clerk.Loading>
           {isGlobalLoading => (

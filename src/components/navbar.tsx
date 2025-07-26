@@ -10,10 +10,15 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from '@/components/ui/resizable-navbar';
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
-import { User } from '@clerk/nextjs/server';
-import Link from 'next/link';
+import {
+  ClerkLoaded,
+  ClerkLoading,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs';
 import { useState } from 'react';
+import { Skeleton } from './ui/skeleton';
 
 export function NavbarKS({ children }: { children?: React.ReactNode }) {
   const navItems = [
@@ -41,6 +46,13 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
+            <ClerkLoading>
+              <NavbarButton variant="secondary" className="hidden md:flex">
+                <div className="flex w-full flex-row justify-center">
+                  <Skeleton className="h-4 w-10" />
+                </div>
+              </NavbarButton>
+            </ClerkLoading>
             <SignedIn>
               <UserButton />
             </SignedIn>
@@ -85,16 +97,30 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <SignedOut>
+              <ClerkLoading>
                 <NavbarButton
                   onClick={() => setIsMobileMenuOpen(false)}
                   variant="primary"
-                  className="w-full"
+                  className="w-full items-center justify-center p-2.5"
                   href="/sign-in"
                 >
-                  Login
+                  <div className="flex w-full flex-row justify-center">
+                    <Skeleton className="h-4 w-10" />
+                  </div>
                 </NavbarButton>
-              </SignedOut>
+              </ClerkLoading>
+              <ClerkLoaded>
+                <SignedOut>
+                  <NavbarButton
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    variant="primary"
+                    className="w-full"
+                    href="/sign-in"
+                  >
+                    Login
+                  </NavbarButton>
+                </SignedOut>
+              </ClerkLoaded>
 
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}

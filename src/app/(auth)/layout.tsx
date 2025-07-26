@@ -21,7 +21,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
       </div>
       <div className="bg-green-mindaro flex h-screen flex-col items-center overflow-auto p-4 py-8">
         {children}
-        <p className="flex flex-row items-center gap-2 text-sm">
+        <p className="flex flex-row items-center gap-2 p-3 text-sm">
           <IconLockCheck className="h-5" />
           Your AnshuID is encrypted and securely stored.
         </p>
