@@ -17,7 +17,7 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs';
-import { useState } from 'react';
+import { Children, useState } from 'react';
 import { Skeleton } from './ui/skeleton';
 
 export function NavbarKS({ children }: { children?: React.ReactNode }) {
@@ -134,15 +134,16 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-      <DummyContent />
-      {/* Render children components */}
-      {children}
+      <DummyContent>
+        {/* Render children components */}
+        {children}
+      </DummyContent>
 
       {/* Navbar */}
     </div>
   );
 }
 
-const DummyContent = () => {
-  return <div className="container mx-auto pt-4"></div>;
+const DummyContent = ({ children }: { children?: React.ReactNode }) => {
+  return <div className="container mx-auto -mt-17">{children}</div>;
 };
