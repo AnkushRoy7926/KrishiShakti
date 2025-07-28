@@ -23,12 +23,12 @@ import { Skeleton } from './ui/skeleton';
 export function NavbarKS({ children }: { children?: React.ReactNode }) {
   const navItems = [
     {
-      name: 'Features',
-      link: '#features',
+      name: 'CropRec',
+      link: '/croprec',
     },
     {
-      name: 'Pricing',
-      link: '#pricing',
+      name: 'News',
+      link: 'news',
     },
     {
       name: 'Contact',

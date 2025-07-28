@@ -4,6 +4,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { ClerkProvider } from '@clerk/nextjs';
 import Head from 'next/head';
+import ChatButton from '@/components/bottom/chatbutton';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -77,6 +78,7 @@ export default function RootLayout({
               </div>
             </header> */}
             {children}
+            <ChatButton />
           </ThemeProvider>
         </body>
       </html>
