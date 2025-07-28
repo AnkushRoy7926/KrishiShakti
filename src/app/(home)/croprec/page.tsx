@@ -93,7 +93,7 @@ export default function CropPage() {
         );
       },
       () => {
-        alert('Unable to retrieve your location');
+        // alert('Unable to retrieve your location');
       }
     );
   }, [form]);
@@ -255,7 +255,7 @@ export default function CropPage() {
         </div>
 
         {/* Form Container */}
-        <div className="mx-auto max-w-4xl rounded-2xl bg-white p-8 shadow-xl md:p-12">
+        <div className="mx-auto max-w-7xl rounded-2xl bg-white p-8 shadow-xl md:p-12">
           <h3 className="mb-8 text-2xl font-semibold text-gray-800 md:text-3xl">
             Soil Data & Location Information
           </h3>
