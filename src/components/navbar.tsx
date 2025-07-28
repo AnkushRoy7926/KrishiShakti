@@ -32,7 +32,7 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
     },
     {
       name: 'Contact',
-      link: '#contact',
+      link: '/contact',
     },
   ];
 
@@ -61,7 +61,7 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
                 Login
               </NavbarButton>
             </SignedOut>
-            <NavbarButton variant="primary" href="/sign-in">
+            <NavbarButton variant="primary" href="/contact">
               Book a call
             </NavbarButton>
           </div>
@@ -126,7 +126,7 @@ export function NavbarKS({ children }: { children?: React.ReactNode }) {
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full"
-                href="/sign-in"
+                href="/contact"
               >
                 Book a call
               </NavbarButton>
